@@ -8,7 +8,6 @@ public class GameEntry : MonoBehaviour
     private void Awake()
     {
 		EventManager.Instance.Initialize();
-		TouchInputManager.Instance.Initialize();
 	}
 
 }
