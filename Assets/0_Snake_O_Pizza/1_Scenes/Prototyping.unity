@@ -200,6 +200,8 @@ GameObject:
   - component: {fileID: 216128780}
   - component: {fileID: 216128779}
   - component: {fileID: 216128778}
+  - component: {fileID: 216128783}
+  - component: {fileID: 216128784}
   m_Layer: 0
   m_Name: Player_Snake
   m_TagString: Untagged
@@ -278,6 +280,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &216128783
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216128777}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9a70f4d7ee800421ab3cc8d04c613a02, type: 3}
+  m_Controller: {fileID: 9100000, guid: 5eead8426663073468af6eedb42b6d2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &216128784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216128777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e38e5a685aaf745b6bdd29df26b230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &274718429
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI_Element: {fileID: 1011581638}
   maximumSteeringAngle: 720
-  wheelReleasedSpeed: 200
+  wheelReleasedSpeed: 300
 --- !u!114 &1011581641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +682,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 9a70f4d7ee800421ab3cc8d04c613a02, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a70f4d7ee800421ab3cc8d04c613a02, type: 3}
 --- !u!1 &1489270885
 GameObject:
