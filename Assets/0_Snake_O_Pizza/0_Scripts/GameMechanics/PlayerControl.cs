@@ -11,23 +11,12 @@ public class PlayerControl : MonoBehaviour, IPlayerInput
 	[Inject]
 	void Construct(IGetInputValue a_refGetInputValue)
 	{
+		Debug.Log("[PlayerControl] Injecting IGetInputValue");
 		m_refGetInputvalues = a_refGetInputValue;
 	}
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-	public void UserInputs()
+	public float UserInputs()
 	{
-		throw new System.NotImplementedException();
+		return m_refGetInputvalues.GetClampedValue();
 	}
 }
