@@ -13,6 +13,7 @@ public class GameManager : MBSingleton<GameManager>
 
 	void RegisterToEVents()
 	{
+
 	}
 
 	void DeregisterToEvents()
@@ -20,7 +21,6 @@ public class GameManager : MBSingleton<GameManager>
 		if (EventManager.Instance == null) return;
 
 	}
-
 
 	private void OnEnable()
 	{
@@ -45,6 +45,11 @@ public class GameManager : MBSingleton<GameManager>
 			case 1:				
 				break;
 		}
+	}
+
+	public void LoadScene(int a_iBuildIndex)
+	{
+		SceneManager.LoadScene(a_iBuildIndex,LoadSceneMode.Single);
 	}
 
 

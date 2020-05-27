@@ -21,9 +21,8 @@ public class MenuUIManager : MonoBehaviour
 	{
 		switch (a_strButton)
 		{
-			case "PlayLocal":
-				break;
-			case "PlayOnline":			
+			case "Start":
+				GameManager.Instance.LoadScene(1);
 				break;
 			case "Exit":
 				Application.Quit();

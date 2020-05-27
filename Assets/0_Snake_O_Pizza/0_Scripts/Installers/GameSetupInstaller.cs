@@ -11,6 +11,7 @@ public class GameSetupInstaller : MonoInstaller
 		Container.BindInterfacesAndSelfTo<TilesGenerator>().FromComponentInHierarchy().AsSingle();
 		Container.BindInterfacesAndSelfTo<WallGenerator>().FromComponentInHierarchy().AsSingle();
 		Container.BindInterfacesAndSelfTo<CollectibleHandler>().FromComponentInHierarchy().AsSingle();
+		Container.BindInterfacesAndSelfTo<ScoreHandler>().FromComponentInHierarchy().AsSingle();
 
 		Container.BindFactory<Vector3, Player, Player.PlayerFactory>().FromComponentInNewPrefab(m_gPlayerSnake);
 		Container.BindFactory<int,Vector3, TileData, TileData.TileFactory>().FromComponentInNewPrefab(m_gTile).UnderTransformGroup("TileParent"); ;

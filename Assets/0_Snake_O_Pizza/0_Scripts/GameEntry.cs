@@ -8,6 +8,7 @@ public class GameEntry : MonoBehaviour
     private void Awake()
     {
 		EventManager.Instance.Initialize();
+		GameManager.Instance.Initialize();
 	}
 
 }
