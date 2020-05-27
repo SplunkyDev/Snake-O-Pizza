@@ -3,6 +3,8 @@
 public class PlayerMovement : MonoBehaviour, IPlayerMovement
 {
 	public Rigidbody PlayerRigidbody {  get; private set; }
+	public bool BMovementActive { get;  set; }
+
 	[Tooltip("Speed of player")]
 	[SerializeField]private float m_fSpeed = 10;
 	[Tooltip("Speed of Rotation")]
@@ -19,11 +21,19 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
 		{
 			Debug.LogError("[PlayerMovement] Player Rigidbody missing");
 		}
-    }
+
+		BMovementActive = true;
+
+	}
 
     void FixedUpdate()
     {
+		if (PlayerRigidbody == null)
+			return;
+
+
 		Movement();
+		
     }
 
 	public void Movement()
