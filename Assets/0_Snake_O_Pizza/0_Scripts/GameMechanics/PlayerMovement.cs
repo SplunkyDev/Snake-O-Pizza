@@ -4,7 +4,6 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
 {
 	public Rigidbody PlayerRigidbody {  get; private set; }
 	public bool BMovementActive { get;  set; }
-	public Quaternion QRotation { get; set; }
 	public Vector3 Vec3AlternateDirection { get; set; }
 
 	[Tooltip("Speed of player")]
@@ -44,17 +43,21 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
 		if (BMovementActive)
 		{
 			transform.Rotate(Vector3.up * m_refPlayerInput.UserInputs() * m_fRotateSpeed, Space.World);
+			PlayerRigidbody.velocity = transform.forward * m_fSpeed;
 		}
 		else
 		{
-			//Quaternion _rot = Quaternion.LookRotation(Vec3AlternateDIrection);
-			//_rot = Quaternion.Euler(0, _rot.y, _rot.z);
-			//transform.rotation = Quaternion.Slerp(transform.rotation, QRotation, Time.deltaTime * m_fRotateSpeed/2);
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(Vec3AlternateDirection), Time.deltaTime * m_fRotateSpeed/2);
-			
+			if(Vector3.Angle(transform.forward,Vec3AlternateDirection) <10)
+			{
+				BMovementActive = true;
+			}
+
+			Vector3 vec3CollideDirection = transform.position;
+			PlayerRigidbody.velocity = vec3CollideDirection * m_fSpeed *-0.5f;
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vec3AlternateDirection, transform.up), Time.deltaTime * m_fRotateSpeed/2);			
 		}
 
-		PlayerRigidbody.velocity = transform.forward  * m_fSpeed;
+		
 	}
 
 }
