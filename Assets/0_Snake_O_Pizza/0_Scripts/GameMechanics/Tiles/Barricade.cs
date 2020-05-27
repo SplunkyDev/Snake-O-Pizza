@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrier : MonoBehaviour, IImpact
+public class Barricade : MonoBehaviour, IImpact
 {
-	[SerializeField]private float m_fForceValue = 5;
 	private Vector3 m_vec3AlternateDirection;
 	private ContactPoint contact;
+	private Renderer m_renderer;
 
 	void Start()
     {
-        
-    }
+		m_renderer = GetComponent<Renderer>();
+		m_renderer.sharedMaterial = new Material(Shader.Find("Diffuse"));
+		m_renderer.sharedMaterial.color = Color.red;
+	}
 
 	void OnCollisionEnter(Collision a_col)
 	{
