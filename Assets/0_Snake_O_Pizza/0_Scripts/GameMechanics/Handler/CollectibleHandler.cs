@@ -38,7 +38,6 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 		int iRandom = Random.Range(0, m_dicTile.Count);
 		int key = m_dicTile.ElementAt(iRandom).Key;
 
-		Debug.Log("[CollectibleHandler] Placing collectible: "+ key);
 		m_gInGameCollectible.transform.position = m_dicTile[key].GTile.transform.position + m_vec3Offset;
 		m_coTimer = StartCoroutine(CollectibleTimer());
 	}
@@ -59,6 +58,12 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 		//Randomizing interval
 		m_fCurentInterval = Random.Range(3, m_fIntervalTimer);
 		yield return new WaitForSeconds(m_fCurentInterval);
+
+		while (GameManager.Instance.EnumGameState != GameUtility.Base.eGameState.InGame)
+		{
+			yield return null;
+		}
+
 		PlaceCollectibleInGame();
 		if (m_coInterval != null)
 		{
@@ -80,7 +85,11 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 	//This is called when the collectible has been picked up
 	public void CollectibleTake()
 	{
-		Debug.Log("[CollectibleHandler] Player Collected");
+		if(AudioManager.Instance)
+		{
+			AudioManager.Instance.PlaySound("PickUp");
+		}
+
 		m_gInGameCollectible.transform.position = m_vec3OutBound;
 		m_RefScoreHandler.UpdateScore(1);
 
@@ -109,6 +118,21 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 	public void UpdateAvailableTile(ITile a_refTile)
 	{
 		m_dicTile.Remove(a_refTile.ITileID);
+		if(m_dicTile.Count <=0)
+		{
+			if (m_coTimer != null)
+			{
+				StopCoroutine(m_coTimer);
+				m_coTimer = null;
+			}
+
+			if (m_coInterval != null)
+			{
+				StopCoroutine(m_coInterval);
+				m_coInterval = null;
+			}
+			GameManager.Instance.GameComplete();
+		}
 	}
 
 

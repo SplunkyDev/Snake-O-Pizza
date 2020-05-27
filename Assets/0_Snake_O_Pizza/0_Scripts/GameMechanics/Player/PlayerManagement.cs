@@ -21,7 +21,6 @@ public class PlayerManagement : MonoBehaviour, IPlayerSetup
 	{
 
 		Vector3 vec3SpawnPoint = new Vector3((a_vec3PointA.x + a_vec3PointB.x) / 2, ((a_vec3PointA.y + a_vec3PointB.y) / 2) +0.5f, (a_vec3PointA.z + a_vec3PointB.x) / 2);
-		Debug.Log("[PlayerManagerMent] Mid Point: "+ vec3SpawnPoint);
 		
 		m_refPlayer = m_refPlayerFactory.Create(vec3SpawnPoint);
 	}

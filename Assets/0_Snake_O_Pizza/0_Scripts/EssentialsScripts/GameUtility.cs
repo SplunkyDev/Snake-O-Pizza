@@ -45,7 +45,8 @@ namespace GameUtility.Base
 		GameComplete = 4,
 		Menu = 6,
 		WaitingForOpponent = 7,
-		ErrorInConnection =8
+		ErrorInConnection =8,
+		Pause = 9
 	}
 
 	public enum eGameUIState
@@ -56,7 +57,8 @@ namespace GameUtility.Base
 		InGameUI = 3,
 		GameComplete = 4,
 		ErrorInConnection =5,
-		WaitingForPlayers =6
+		WaitingForPlayers =6,
+		PauseUI =7
 
 	}
 

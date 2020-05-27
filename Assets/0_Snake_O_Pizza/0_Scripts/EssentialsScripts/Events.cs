@@ -5,11 +5,13 @@ using System.Collections.Generic;
 #region GameMechanics
 
 //Event to start a new session as all details have been got
-public class EventStartGameSession : IEventBase
+public class EventUpdateScore : IEventBase
 {
-	public EventStartGameSession()
+	private int m_iScore;
+	public int IScore { get => m_iScore; }
+	public EventUpdateScore(int a_iScore)
 	{
-
+		m_iScore = a_iScore;
 	}
 }
 
@@ -63,6 +65,22 @@ public class EventShowInGameUI : IEventBase
 		m_eGameState = a_eGameState;
 	}
 }
+
+//Event to show in Pause UI
+public class EventShowInPauseUI : IEventBase
+{
+	private bool m_bShowUI = false;
+	public bool BShowUI { get => m_bShowUI; }
+	private eGameState m_eGameState;
+	public eGameState EGameState { get => m_eGameState; }
+
+	public EventShowInPauseUI(bool a_bShowUI, eGameState a_eGameState)
+	{
+		m_bShowUI = a_bShowUI;
+		m_eGameState = a_eGameState;
+	}
+}
+
 
 public class EventShowWaitingForPlayersUI : IEventBase
 {

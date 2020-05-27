@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameUtility.Base;
 
 public class ScoreHandler : MonoBehaviour, IScore
 {
@@ -10,11 +11,9 @@ public class ScoreHandler : MonoBehaviour, IScore
 	public void UpdateScore(int a_iScore)
 	{
 		m_iScore += a_iScore;
+		EventManager.Instance.TriggerEvent<EventUpdateScore>(new EventUpdateScore(m_iScore));
 	}
 
-	void Start()
-    {
-        
-    }
+	
 
 }

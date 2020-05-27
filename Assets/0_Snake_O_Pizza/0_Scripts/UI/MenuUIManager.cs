@@ -22,7 +22,7 @@ public class MenuUIManager : MonoBehaviour
 		switch (a_strButton)
 		{
 			case "Start":
-				StartCoroutine(GameManager.Instance.LoadScene(1));
+				StartCoroutine(GameManager.Instance.LoadScene(0.2f,1));
 				break;
 			case "Exit":
 				Application.Quit();

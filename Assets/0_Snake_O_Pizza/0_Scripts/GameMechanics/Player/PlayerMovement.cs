@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
 
 	public void Movement()
 	{
+		if (GameManager.Instance.EnumGameState != GameUtility.Base.eGameState.InGame)
+			return;
+
 		if (BMovementActive)
 		{
 			transform.Rotate(Vector3.up * m_refPlayerInput.UserInputs() * m_fRotateSpeed, Space.World);

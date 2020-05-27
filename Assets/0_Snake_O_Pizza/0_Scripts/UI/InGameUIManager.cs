@@ -8,29 +8,13 @@ using DG.Tweening;
 
 public class InGameUIManager : MonoBehaviour
 {
-	private static InGameUIManager m_instance;
-	public static InGameUIManager Instance
-	{
-		get
-		{
-			if(m_instance == null)
-			{
-				m_instance = FindObjectOfType<InGameUIManager>();
-			}
-			return m_instance;
-		}
-	}
 
 	public Text m_textInGameScore, m_textGCScore;
+	private int m_iGameScore;
 
 	private void RegisterToEvent()
 	{
-		if(EventManager.Instance == null)
-		{
-			Debug.LogError("[InGameUIManager] EventManager is null");
-			return;
-		}
-
+		EventManager.Instance.RegisterEvent<EventUpdateScore>(UpdateScore);
 	}
 
 	private void DeregisterToEvent()
@@ -39,16 +23,10 @@ public class InGameUIManager : MonoBehaviour
 		{
 			return;
 		}
+		EventManager.Instance.DeRegisterEvent<EventUpdateScore>(UpdateScore);
 
 	}
 
-	private  void Awake()
-	{
-		if(m_instance == null)
-		{
-			m_instance = this;
-		}
-	}
 
 	private void OnEnable()
 	{
@@ -65,7 +43,16 @@ public class InGameUIManager : MonoBehaviour
 		DOTween.Init(true, false, LogBehaviour.Verbose);
 	}
 
-    private void Update()
+	private void UpdateScore(IEventBase a_Event)
+	{
+		EventUpdateScore data = a_Event as EventUpdateScore;
+		if (data == null)
+			return;
+		m_iGameScore = data.IScore;
+		m_textGCScore.text = m_textInGameScore.text = m_iGameScore.ToString();
+	}
+
+	private void Update()
     {
         
     }
@@ -75,15 +62,27 @@ public class InGameUIManager : MonoBehaviour
 		switch (a_strButton)
 		{
 			case "GamePause":
+				GameManager.Instance.GamePaused();
 				break;
-			case "GameResume":				
+			case "GameResume":
+				Debug.Log("Resume Game");
+				TimeScale();
+				GameManager.Instance.GameResumed();
 				break;
 			case "Home":
+				TimeScale();
+				GameManager.Instance.GoHome();
 				break;
-			case "OK":
+			case "OK":			
+				GameManager.Instance.GoHome();
 				break;
 		}
 
+	}
+
+	public void TimeScale()
+	{
+		GameManager.Instance.TimeScaleChange();
 	}
 
 

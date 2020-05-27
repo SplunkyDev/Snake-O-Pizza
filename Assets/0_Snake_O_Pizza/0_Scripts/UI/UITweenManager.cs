@@ -57,6 +57,9 @@ public class UITweenManager : MonoBehaviour
 			case eGameUIState.WaitingForPlayers:
 				EventManager.Instance.RegisterEvent<EventShowWaitingForPlayersUI>(AnimateUI);
 				break;
+			case eGameUIState.PauseUI:
+				EventManager.Instance.RegisterEvent<EventShowInPauseUI>(AnimateUI);
+				break;
 			default:
 				break;
 		}
@@ -89,6 +92,9 @@ public class UITweenManager : MonoBehaviour
 				break;
 			case eGameUIState.WaitingForPlayers:
 				EventManager.Instance.DeRegisterEvent<EventShowWaitingForPlayersUI>(AnimateUI);
+				break;
+			case eGameUIState.PauseUI:
+				EventManager.Instance.DeRegisterEvent<EventShowInPauseUI>(AnimateUI);
 				break;
 			default:
 				break;
@@ -176,6 +182,22 @@ public class UITweenManager : MonoBehaviour
 				{
 					m_eGameState = d4.EGameState;
 					if (d4.BShowUI)
+					{
+						StartCoroutine(UITweenIn());
+					}
+					else
+					{
+						StartCoroutine(UITweenOut());
+					}
+				}
+				break;
+			case eGameUIState.PauseUI:
+				EventShowInPauseUI d5;
+				d5 = a_Event as EventShowInPauseUI;
+				if (d5 != null)
+				{
+					m_eGameState = d5.EGameState;
+					if (d5.BShowUI)
 					{
 						StartCoroutine(UITweenIn());
 					}
