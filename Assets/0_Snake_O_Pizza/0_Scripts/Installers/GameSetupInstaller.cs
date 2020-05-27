@@ -3,7 +3,7 @@ using Zenject;
 
 public class GameSetupInstaller : MonoInstaller
 {
-	public GameObject m_gPlayerSnake, m_gTile, m_gWall;
+	public GameObject m_gPlayerSnake, m_gTile;
 	
     public override void InstallBindings()
     {
@@ -12,6 +12,6 @@ public class GameSetupInstaller : MonoInstaller
 		Container.BindInterfacesAndSelfTo<WallGenerator>().FromComponentInHierarchy().AsSingle();
 
 		Container.BindFactory<Vector3, Player, Player.PlayerFactory>().FromComponentInNewPrefab(m_gPlayerSnake);
-		Container.BindFactory<Vector3, TileData, TileData.TileFactory>().FromComponentInNewPrefab(m_gTile);
+		Container.BindFactory<int,Vector3, TileData, TileData.TileFactory>().FromComponentInNewPrefab(m_gTile).UnderTransformGroup("TileParent"); ;
 	}
 }

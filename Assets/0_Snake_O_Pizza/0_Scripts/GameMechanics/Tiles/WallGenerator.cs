@@ -6,11 +6,13 @@ using Zenject;
 public class WallGenerator : MonoBehaviour, IWallGenerator
 {
 	private const int WALLS = 4;
-	
+
+	[SerializeField] private GameObject m_gWall;
 	[SerializeField] private List<GameObject> m_lstTileData = new List<GameObject>();
 	public List<GameObject> LTileData { get => m_lstTileData; }
 	private ITileGenerator m_refTileGenerator;
 	private GameObject m_gWallParent;
+
 	[Inject]
 	private void Construct(ITileGenerator a_refTileGenerator)
 	{
@@ -51,7 +53,7 @@ public class WallGenerator : MonoBehaviour, IWallGenerator
 
 		for(int i =0; i<WALLS;i++)
 		{
-			GameObject gWall = Instantiate(m_refTileGenerator.GTile, m_lstTileData[i].transform.position, Quaternion.identity, m_gWallParent.transform);
+			GameObject gWall = Instantiate(m_gWall, m_lstTileData[i].transform.position, Quaternion.identity, m_gWallParent.transform);
 			gWall.name = "Wall_" + (i + 1);
 			gWall.AddComponent<Barricade>();
 			gWall.tag = "Wall";
