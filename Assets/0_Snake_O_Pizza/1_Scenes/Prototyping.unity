@@ -623,8 +623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6481d9ff29917409c1c6d84f24fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_iRowNumber: 6
-  m_iColNumber: 4
+  m_iRowNumber: 15
+  m_iColNumber: 3
   m_gTile: {fileID: 6032721734520542581, guid: d4d50270db2783b40811082bc43b0725, type: 3}
 --- !u!1 &1489270885
 GameObject:
@@ -703,7 +703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489270885}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 1.5, y: 8, z: 2.5}
+  m_LocalPosition: {x: 1.5, y: 17, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -838,6 +838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2386445d0ce9b9e4ea3e0c0c6a455968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_gPlayerSnake: {fileID: 8963790275523247688, guid: 8702836f82e18fc45aa013296bc1c831,
+    type: 3}
 --- !u!114 &1531366220
 MonoBehaviour:
   m_ObjectHideFlags: 0
