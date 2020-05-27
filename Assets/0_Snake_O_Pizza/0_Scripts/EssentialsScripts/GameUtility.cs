@@ -30,6 +30,11 @@ namespace GameUtility.Base
         void DeRegisterForEvents();
     }
 
+	public enum eTileState
+	{
+		Unconquered =0,
+		Conquered =1
+	}
 
 	public enum eGameState
 	{
