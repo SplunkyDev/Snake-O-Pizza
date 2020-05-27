@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour, IPlayerMovement
 			}
 
 			Vector3 vec3CollideDirection = transform.position;
-			PlayerRigidbody.velocity = vec3CollideDirection * m_fSpeed *-0.5f;
+			PlayerRigidbody.velocity = vec3CollideDirection * m_fSpeed/2 *-0.5f;
 			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Vec3AlternateDirection, transform.up), Time.deltaTime * m_fRotateSpeed/2);			
 		}
 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8963790275523247697}
   - component: {fileID: 8963790275523247692}
   - component: {fileID: 8963790275523247691}
+  - component: {fileID: -4917275516983020776}
   m_Layer: 0
   m_Name: Player_Snake
   m_TagString: Player
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_fSpeed: 2
-  m_fRotateSpeed: 10
+  m_fRotateSpeed: 6
 --- !u!114 &8963790275523247691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,6 +123,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40e38e5a685aaf745b6bdd29df26b230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4917275516983020776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963790275523247688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a001b43801e9846a5bc97b09965bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8963790274331428620

@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/0_Snake_O_Pizza/1_Scenes/Game/0_Menu.unity
+    guid: 7e55ab2bf3455d544b038aff05c219d5
+  - enabled: 1
+    path: Assets/0_Snake_O_Pizza/1_Scenes/Game/1_Game.unity
+    guid: 32742c6429d8f1949bb61f765d11b5ed
   m_configObjects: {}

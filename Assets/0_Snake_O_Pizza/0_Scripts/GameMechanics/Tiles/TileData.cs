@@ -24,7 +24,6 @@ public class TileData : MonoBehaviour, ITile
 	private void Construct(int a_iTileID,Vector3 a_Vec3Posi, ICollectible a_refCollectible)
 	{
 		m_iTileID = a_iTileID;
-		Debug.Log("[TileData] TileID: " + m_iTileID);
 		transform.position = a_Vec3Posi;
 		m_refCollectible = a_refCollectible;
 	}
@@ -49,7 +48,7 @@ public class TileData : MonoBehaviour, ITile
 	}
 
 	// Start is called before the first frame update
-	void Start()
+	void Awake()
 	{
 		m_enumTileState = GameUtility.Base.eTileState.Unconquered;
 		m_renderer = GetComponent<Renderer>();

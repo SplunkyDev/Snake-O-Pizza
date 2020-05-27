@@ -969,20 +969,20 @@ MonoBehaviour:
   m_Sounds:
   - name: Button
     clip: {fileID: 8300000, guid: 58396a7f3ae30264c8c94a41bc16dac5, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.65
+    pitch: 1
     source: {fileID: 0}
     loop: 0
   - name: PickUp
     clip: {fileID: 8300000, guid: 39e6c2c9557b7a74fb6eeab76e73a748, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 0.65
+    pitch: 1
     source: {fileID: 0}
     loop: 0
   m_gamebackgroundSound:
     name: BG
     clip: {fileID: 8300000, guid: 50b3b83e570da3848a2c2230654aece6, type: 3}
-    volume: 1
+    volume: 0.45
     pitch: 1
     source: {fileID: 0}
     loop: 1

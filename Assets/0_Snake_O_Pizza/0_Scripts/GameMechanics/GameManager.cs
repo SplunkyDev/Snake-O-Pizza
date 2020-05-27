@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using GameUtility.Base;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using SystemRandom = System.Random;
+using Zenject;
 
 public class GameManager : MBSingleton<GameManager>
 {
@@ -21,6 +20,7 @@ public class GameManager : MBSingleton<GameManager>
 		if (EventManager.Instance == null) return;
 
 	}
+
 
 	private void OnEnable()
 	{
@@ -47,10 +47,12 @@ public class GameManager : MBSingleton<GameManager>
 		}
 	}
 
-	public void LoadScene(int a_iBuildIndex)
+	public IEnumerator LoadScene(int a_iBuildIndex)
 	{
+		yield return new WaitForSeconds(1);
 		SceneManager.LoadScene(a_iBuildIndex,LoadSceneMode.Single);
 	}
+
 
 
 }

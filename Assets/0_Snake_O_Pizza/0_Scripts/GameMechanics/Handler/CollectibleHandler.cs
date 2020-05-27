@@ -37,6 +37,8 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 
 		int iRandom = Random.Range(0, m_dicTile.Count);
 		int key = m_dicTile.ElementAt(iRandom).Key;
+
+		Debug.Log("[CollectibleHandler] Placing collectible: "+ key);
 		m_gInGameCollectible.transform.position = m_dicTile[key].GTile.transform.position + m_vec3Offset;
 		m_coTimer = StartCoroutine(CollectibleTimer());
 	}
@@ -78,6 +80,7 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 	//This is called when the collectible has been picked up
 	public void CollectibleTake()
 	{
+		Debug.Log("[CollectibleHandler] Player Collected");
 		m_gInGameCollectible.transform.position = m_vec3OutBound;
 		m_RefScoreHandler.UpdateScore(1);
 
@@ -112,7 +115,7 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 	void Start()
     {
 		m_vec3OutBound = new Vector3(1000, 1000, 1000);
-		m_vec3Offset = new Vector3(0, 1, 0);
+		m_vec3Offset = new Vector3(0, 0.5f, 0);
 		m_gInGameCollectible = Instantiate(m_gCollectible, m_vec3OutBound, Quaternion.identity);
 
 	}

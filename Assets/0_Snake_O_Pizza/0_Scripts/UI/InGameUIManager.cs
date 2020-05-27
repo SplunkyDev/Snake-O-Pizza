@@ -21,20 +21,7 @@ public class InGameUIManager : MonoBehaviour
 		}
 	}
 
-	[Header("Player Avatar (Blue,Yellow,Red,Green)")]
-	[SerializeField] private Image[] m_arrPlayerAvatar;
-	[SerializeField] private Sprite[] m_arrDiceSprite;
-
-	private Animator[] m_arrAnimController;
-	private Image[] m_arrDiceImage;
-
-	private Vector2 m_vec2ScaleValue;
-	private Image m_imgPrevAvatar, m_imgCurrentAvatar, m_imgCurrentDiceRoll;
-
-
-	public GameObject m_gResultPrefab;
-	public GameObject m_gGridResult;
-	public Text m_textGameInstruction, m_textConnectionError, m_textBluePlayer, m_textYelloPlayer, m_textRedPlayer, m_textGreenPlayer;
+	public Text m_textInGameScore, m_textGCScore;
 
 	private void RegisterToEvent()
 	{
@@ -83,5 +70,21 @@ public class InGameUIManager : MonoBehaviour
         
     }
 
-	
+	public void InputButton(string a_strButton)
+	{
+		switch (a_strButton)
+		{
+			case "GamePause":
+				break;
+			case "GameResume":				
+				break;
+			case "Home":
+				break;
+			case "OK":
+				break;
+		}
+
+	}
+
+
 }

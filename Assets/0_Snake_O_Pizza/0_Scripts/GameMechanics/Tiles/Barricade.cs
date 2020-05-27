@@ -20,7 +20,6 @@ public class Barricade : MonoBehaviour, IImpact
 		if (!a_col.gameObject.CompareTag("Player"))
 			return;
 
-		Debug.Log("[Barrier] Snake Collided");
 		Impact(a_col);
 	}
 
