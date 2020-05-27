@@ -16,22 +16,25 @@ public class TileData : MonoBehaviour, ITile
 	private GameUtility.Base.eTileState m_enumTileState;
 	public eTileState ETileState { get => m_enumTileState; }
 
+	private ICollectible m_refCollectible;
 
 
 	//TODO: Inject Collectible Manager
 	[Inject]
-	private void Construct(int a_iTileID,Vector3 a_Vec3Posi)
+	private void Construct(int a_iTileID,Vector3 a_Vec3Posi, ICollectible a_refCollectible)
 	{
 		m_iTileID = a_iTileID;
+		Debug.Log("[TileData] TileID: " + m_iTileID);
 		transform.position = a_Vec3Posi;
+		m_refCollectible = a_refCollectible;
 	}
 
+	[ContextMenu("ChangeTileState")]
 	public void ChangeTileState()
 	{
 		m_enumTileState = GameUtility.Base.eTileState.Conquered;
 		m_renderer.sharedMaterial.color = Color.green;
-
-		//TODO: Update collectibleManager
+		m_refCollectible.UpdateAvailableTile(this);
 	}
 
 	private void OnTriggerEnter(Collider a_col)

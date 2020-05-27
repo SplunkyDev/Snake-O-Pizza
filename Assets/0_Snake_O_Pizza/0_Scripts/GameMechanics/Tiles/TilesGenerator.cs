@@ -16,15 +16,17 @@ public class TilesGenerator : MonoBehaviour, ITileGenerator
 	private List<ITile> m_lstTileData = new List<ITile>();
 	public List<ITile> LTileData { get => m_lstTileData;}
 
+	private ICollectible m_refCollectible;
 	private IWallGenerator m_refWallGenerator;
 	private TileData.TileFactory m_refTileFactory;
 
 	[Inject]
-	private void Construct(IWallGenerator a_refWallGenerator, TileData.TileFactory a_refTileFactory)
+	private void Construct(IWallGenerator a_refWallGenerator, TileData.TileFactory a_refTileFactory, ICollectible a_refCollectible)
 	{
 		Debug.Log("[TilesGenerator] initialize");
 		m_refWallGenerator = a_refWallGenerator;
 		m_refTileFactory = a_refTileFactory;
+		m_refCollectible = a_refCollectible;
 	}
 
 	void Start()
@@ -46,6 +48,7 @@ public class TilesGenerator : MonoBehaviour, ITileGenerator
 				//Instantiating using IoC, using IoC registers the Prefabs to the container and we can inject the references where ever required.
 				TileData refTileData = m_refTileFactory.Create(iCount,new Vector3(j, -0.5f, i));
 				refTileData.GTile.name = "Tile_" +iCount;
+				Debug.Log("[TilesGenerator] TileID: "+refTileData.ITileID);
 				m_lstTileData.Add(refTileData);
 
 				//Taking the mid tiles, will use these mid tiles postion to male the walls
@@ -65,6 +68,10 @@ public class TilesGenerator : MonoBehaviour, ITileGenerator
 				}			
 			}
 		}
+
+		//All the tiles have been generated now the Collectibles needs to  be initialized.
+		m_refCollectible.InitializeTileData(m_lstTileData);
+
 	}
 		
 }

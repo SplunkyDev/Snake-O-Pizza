@@ -398,6 +398,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_gWall: {fileID: 6032721734520542581, guid: 8238044ef72d01f47b6e213374edfbc1, type: 3}
   m_lstTileData: []
+--- !u!1 &670078308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 670078309}
+  - component: {fileID: 670078310}
+  m_Layer: 0
+  m_Name: CollectibleHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &670078309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670078308}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 738686119}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &670078310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670078308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65da9155969bd004b8f4cb16ab42a369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gCollectible: {fileID: 7544275835167746434, guid: 84dd49c3d55e43648added4a845c8582,
+    type: 3}
+  m_fLiveTimer: 3
+  m_fIntervalTimer: 10
 --- !u!1 &738686118
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,6 +475,7 @@ Transform:
   - {fileID: 1464090098}
   - {fileID: 550706891}
   - {fileID: 1531366221}
+  - {fileID: 670078309}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -624,8 +672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6481d9ff29917409c1c6d84f24fd36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_iRowNumber: 15
-  m_iColNumber: 3
+  m_iRowNumber: 5
+  m_iColNumber: 5
   m_gTile: {fileID: 6032721734520542581, guid: d4d50270db2783b40811082bc43b0725, type: 3}
 --- !u!1 &1489270885
 GameObject:
@@ -842,7 +890,6 @@ MonoBehaviour:
   m_gPlayerSnake: {fileID: 8963790275523247688, guid: 8702836f82e18fc45aa013296bc1c831,
     type: 3}
   m_gTile: {fileID: 6032721734520542581, guid: d4d50270db2783b40811082bc43b0725, type: 3}
-  m_gWall: {fileID: 0}
 --- !u!114 &1531366220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,8 +929,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531366218}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75486475, y: 0.38925838, z: -2.9593055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 738686119}
