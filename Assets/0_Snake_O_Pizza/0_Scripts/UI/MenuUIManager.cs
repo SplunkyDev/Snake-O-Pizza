@@ -24,7 +24,7 @@ public class MenuUIManager : MonoBehaviour
 			case "Start":
 				StartCoroutine(GameManager.Instance.LoadScene(0.2f,1));
 				break;
-			case "Exit":
+			case "Quit":
 				Application.Quit();
 				break;
 		}
