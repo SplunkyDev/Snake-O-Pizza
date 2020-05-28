@@ -17,6 +17,7 @@ public class PlayerManagement : MonoBehaviour, IPlayerSetup
 		m_refPlayerFactory = a_refPlayerFactory;
 	}
 
+	//This instantiates the player to the middle of the playzone, using zenject factory here
 	public void InitializePlayer(Vector3 a_vec3PointA, Vector3 a_vec3PointB)
 	{
 

@@ -43,6 +43,8 @@ public class InGameUIManager : MonoBehaviour
 		DOTween.Init(true, false, LogBehaviour.Verbose);
 	}
 
+
+	// This Updates the score in th UI when this event is triggered
 	private void UpdateScore(IEventBase a_Event)
 	{
 		EventUpdateScore data = a_Event as EventUpdateScore;
@@ -80,6 +82,7 @@ public class InGameUIManager : MonoBehaviour
 
 	}
 
+	//change timescale
 	public void TimeScale()
 	{
 		GameManager.Instance.TimeScaleChange();

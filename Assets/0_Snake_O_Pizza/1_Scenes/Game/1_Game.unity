@@ -1731,7 +1731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI_Element: {fileID: 1011581638}
   maximumSteeringAngle: 720
-  wheelReleasedSpeed: 300
+  wheelReleasedSpeed: 350
 --- !u!114 &1011581641
 MonoBehaviour:
   m_ObjectHideFlags: 0

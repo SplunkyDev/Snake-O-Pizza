@@ -37,6 +37,7 @@ public class WallGenerator : MonoBehaviour, IWallGenerator
 		
 	}
 
+
 	public void AddTileToList(GameObject a_gTile)
 	{
 
@@ -46,6 +47,7 @@ public class WallGenerator : MonoBehaviour, IWallGenerator
 			m_gWallParent.transform.position = Vector3.zero;
 		}
 
+		//Add the centre tiles to list for reference
 		m_lstTileData.Add(a_gTile);
 
 		if (m_lstTileData.Count != 4)
@@ -53,11 +55,14 @@ public class WallGenerator : MonoBehaviour, IWallGenerator
 
 		for(int i =0; i<WALLS;i++)
 		{
+			//Instantiate frome the reference tile position
 			GameObject gWall = Instantiate(m_gWall, m_lstTileData[i].transform.position, Quaternion.identity, m_gWallParent.transform);
 			gWall.name = "Wall_" + (i + 1);
+			//Adding BArricade code for collision
 			gWall.AddComponent<Barricade>();
 			gWall.tag = "Wall";
 
+			//Based on wall side reseting position and scaling  to make one wall
 			switch (i)
 			{
 				case 0:

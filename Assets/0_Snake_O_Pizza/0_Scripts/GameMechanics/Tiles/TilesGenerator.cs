@@ -5,7 +5,11 @@ using Zenject;
 
 public class TilesGenerator : MonoBehaviour, ITileGenerator
 {
-	[SerializeField] private int m_iRowNumber, m_iColNumber;
+	[Header("Row number of tile")]
+	[SerializeField] private int m_iRowNumber;
+	[Header("Row number of tile")]
+	[SerializeField] private int m_iColNumber;
+
 	public int IRowNumber { get => m_iRowNumber; private set => m_iRowNumber = value; }
 	public int IColumnNumber { get => m_iColNumber; private set => m_iColNumber = value; }
 
@@ -72,6 +76,8 @@ public class TilesGenerator : MonoBehaviour, ITileGenerator
 
 		//All the tiles have been generated now the Collectibles needs to  be initialized.
 		m_refCollectible.InitializeTileData(m_lstTileData);
+
+		//on instatiating player place player in the middel of the play zone
 		m_refPlayerSetup.InitializePlayer(m_lstTileData[0].GTile.transform.position, m_lstTileData[m_lstTileData.Count -1].GTile.transform.position);
 	}
 		

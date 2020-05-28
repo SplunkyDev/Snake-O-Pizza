@@ -10,7 +10,10 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 	public Dictionary<int, ITile> DTile => m_dicTile;
 
 	[SerializeField] private GameObject m_gCollectible;
-	[SerializeField] private float m_fLiveTimer, m_fIntervalTimer;
+	[Header("The length of time the collectible will remain in scene")]
+	[SerializeField] private float m_fLiveTimer;
+	[Header("The length of time between the next appearance of collective")]
+	[SerializeField] private float m_fIntervalTimer;
 
 	private float m_fCurentInterval;
 	private GameObject m_gInGameCollectible;
@@ -42,6 +45,7 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 		m_coTimer = StartCoroutine(CollectibleTimer());
 	}
 
+	//delay control for the life of collectible
 	private IEnumerator CollectibleTimer()
 	{
 		yield return new WaitForSeconds(m_fLiveTimer);
@@ -53,6 +57,7 @@ public class CollectibleHandler : MonoBehaviour, ICollectible
 		}
 	}
 
+	//delay control for the interval
 	private IEnumerator CollectibleInterval()
 	{
 		//Randomizing interval
